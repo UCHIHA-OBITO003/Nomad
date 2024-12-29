@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Starry Night Background */
+.starry-night-bg {
+  background: radial-gradient(circle at 50% 50%, #141e30, #1a2238, #3e4a61);
+  position: relative;
+  
+  animation: starry-sky 5s infinite linear;
+}
+
+@keyframes starry-sky {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Moon (Cute Moon) */
+.moon {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 50% 50%, #fff, #ddd);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+  animation: moon-shine 2s infinite ease-in-out;
+  z-index: 5;  /* Ensure moon is above background */
+}
+
+@keyframes moon-shine {
+  0% {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Asteroids */
+.asteroid {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  width: 25px;
+  height: 25px;
+  background: #777;
+  border-radius: 50%;
+  animation: move-asteroid 5s infinite linear;
+  z-index: 4;  /* Ensure asteroids are above the background */
+}
+
+@keyframes move-asteroid {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    transform: translate(250px, -200px) rotate(360deg);
+  }
+}
+
+/* Starry Background */
+.starry-night-bg:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/star.png') repeat;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Animation for Stars */
+.starry-night-bg {
+  animation: stars-move 1.5s infinite linear;
+}
+
+@keyframes stars-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
